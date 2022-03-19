@@ -19,7 +19,6 @@
   },
 
   "include": [
-    "src/**/*.vue",
     "src/**/*.ts",
     "src/**/*.tsx",
     "types/**/*.d.ts",
@@ -29,5 +28,8 @@
   "exclude": [
     "**/*.spec.ts",
     "**/*.test.ts",
-  ]
+  ],
+  "rules": {
+    "no-empty": false,
+  }
 }

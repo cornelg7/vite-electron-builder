@@ -4,6 +4,8 @@ import {URL} from 'url';
 
 async function createWindow() {
   const browserWindow = new BrowserWindow({
+    width: 1324,
+    height: 900,
     show: false, // Use 'ready-to-show' event to show window
     webPreferences: {
       nativeWindowOpen: true,
@@ -11,6 +13,7 @@ async function createWindow() {
       preload: join(__dirname, '../../preload/dist/index.cjs'),
     },
   });
+  browserWindow.removeMenu();
 
   /**
    * If you install `show: true` then it can cause issues when trying to close the window.

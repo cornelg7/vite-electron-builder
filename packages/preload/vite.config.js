@@ -24,6 +24,7 @@ const config = {
     rollupOptions: {
       external: [
         'electron',
+        'electron/main',
         ...builtinModules.flatMap(p => [p, `node:${p}`]),
       ],
       output: {

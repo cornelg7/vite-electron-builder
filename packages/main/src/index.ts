@@ -1,7 +1,14 @@
-import {app} from 'electron';
+import {app, ipcMain} from 'electron';
 import './security-restrictions';
 import {restoreOrCreateWindow} from '/@/mainWindow';
 
+
+/**
+ * Close app command
+ */
+ipcMain.on('close-app', (evt, arg) => {
+  app.quit();
+});
 
 /**
  * Prevent multiple instances
@@ -45,16 +52,16 @@ app.whenReady()
 /**
  * Install Vue.js or some other devtools in development mode only
  */
-if (import.meta.env.DEV) {
-  app.whenReady()
-    .then(() => import('electron-devtools-installer'))
-    .then(({default: installExtension, VUEJS3_DEVTOOLS}) => installExtension(VUEJS3_DEVTOOLS, {
-      loadExtensionOptions: {
-        allowFileAccess: true,
-      },
-    }))
-    .catch(e => console.error('Failed install extension:', e));
-}
+// if (import.meta.env.DEV) {
+//   app.whenReady()
+//     .then(() => import('electron-devtools-installer'))
+//     .then(({default: installExtension, VUEJS3_DEVTOOLS}) => installExtension(VUEJS3_DEVTOOLS, {
+//       loadExtensionOptions: {
+//         allowFileAccess: true,
+//       },
+//     }))
+//     .catch(e => console.error('Failed install extension:', e));
+// }
 
 /**
  * Check new app version in production mode only

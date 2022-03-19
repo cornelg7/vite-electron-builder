@@ -33,3 +33,8 @@ test('nodeCrypto', async () => {
 
   expect(exposeInMainWorldMock.mock.calls[0][1].sha256sum(data)).toBe(expectedHash);
 });
+
+test('closeApp', async () => {
+  await import('../src/closeApp');
+  expect(exposeInMainWorldMock).toBeCalledTimes(1);
+});

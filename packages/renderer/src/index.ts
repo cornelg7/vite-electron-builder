@@ -1,5 +1,6 @@
-import {createApp} from 'vue';
-import App from '/@/App.vue';
+import './style.scss';
+import Game from './Game';
+import { addEventListeners } from './utils/WindowEventListeners';
 
-createApp(App).mount('#app');
-
+addEventListeners();
+Game.getInstance().animate();

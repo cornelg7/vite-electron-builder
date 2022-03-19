@@ -19,6 +19,7 @@ vi.mock('electron', () => {
   bw.prototype.isMinimized = vi.fn();
   bw.prototype.focus = vi.fn();
   bw.prototype.restore = vi.fn();
+  bw.prototype.removeMenu = vi.fn();
 
   return {BrowserWindow: bw};
 });
